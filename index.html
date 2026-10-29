@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mi Marca | Creatividad que inspira</title>
+  <meta name="description" content="Descubre nuestra marca, nuestros productos y todo lo que tenemos para ti.">
+
+  <style>
+    :root {
+      --principal: #7C3AED;
+      --secundario: #FF6B6B;
+      --acento: #FFD166;
+      --fondo: #FFF9F2;
+      --texto: #29233A;
+      --blanco: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contenedor {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--blanco);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 18px #29233A10;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--principal);
+    }
+
+    .logo span {
+      color: var(--secundario);
+    }
+
+    .enlaces {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .enlaces a:hover {
+      color: var(--secundario);
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--principal);
+      color: white;
+      padding: 13px 23px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: transform .2s, background .2s;
+    }
+
+    .boton:hover {
+      background: #5B21B6;
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      padding: 85px 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 15%, #FFD16680, transparent 25%),
+        radial-gradient(circle at 5% 90%, #FF6B6B30, transparent 25%),
+        var(--fondo);
+    }
+
+    .hero-contenido {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: #EDE4FF;
+      color: var(--principal);
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: .85rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: var(--principal);
+    }
+
+    .hero p {
+      max-width: 530px;
+      font-size: 1.08rem;
+      color: #655D70;
+      margin-bottom: 28px;
+    }
+
+    .ilustracion {
+      min-height: 360px;
+      border-radius: 48% 52% 40% 60%;
+      background: linear-gradient(140deg, #FFD166, #FF9D76, #FF6B6B);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transform: rotate(3deg);
+    }
+
+    .ilustracion-interior {
+      width: 78%;
+      min-height: 260px;
+      background: #FFFFFFD9;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      transform: rotate(-3deg);
+      box-shadow: 0 20px 50px #29233A18;
+    }
+
+    .emoji {
+      font-size: 6rem;
+      line-height: 1.3;
+    }
+
+    .ilustracion-interior h2 {
+      color: var(--principal);
+      font-size: 1.8rem;
+    }
+
+    .seccion {
+      padding: 75px 0;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 40px;
+    }
+
+    .titulo-seccion h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .titulo-seccion p {
+      color: #71697B;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .tarjeta {
+      background: white;
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px #29233A0B;
+      border: 1px solid #F0E9F7;
+      transition: transform .25s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-7px);
+    }
+
+    .icono {
+      width: 65px;
+      height: 65px;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      background: #EDE4FF;
+    }
+
+    .tarjeta:nth-child(2) .icono {
+      background: #FFE5E1;
+    }
+
+    .tarjeta:nth-child(3) .icono {
+      background: #FFF0C9;
+    }
+
+    .tarjeta h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta p {
+      color: #71697B;
+      margin-bottom: 18px;
+    }
+
+    .tarjeta a {
+      color: var(--principal);
+      font-weight: bold;
+    }
+
+    .sobre {
+      background: #EEE7FF;
+    }
+
+    .sobre-contenido {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .sobre-grafico {
+      min-height: 260px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #7C3AED, #B69AFF);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 7rem;
+    }
+
+    .sobre h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 18px;
+    }
+
+    .sobre p {
+      color: #514568;
+      margin-bottom: 20px;
+    }
+
+    .contacto {
+      text-align: center;
+      background: var(--texto);
+      color: white;
+      border-radius: 35px;
+      padding: 55px 25px;
+    }
+
+    .contacto h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 15px;
+    }
+
+    .contacto p {
+      color: #E0D9EA;
+      margin-bottom: 25px;
+    }
+
+    .contacto .boton {
+      background: var(--acento);
+      color: var(--texto);
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: #71697B;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        justify-content: center;
+      }
+
+      .enlaces {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .hero-contenido,
+      .sobre-contenido {
+        grid-template-columns: 1fr;
+      }
+
+      .ilustracion {
+        min-height: 290px;
+      }
+
+      .tarjetas {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="contenedor">
+      <!-- Cambia "Mi Marca" por el nombre de tu negocio -->
+      <a href="#inicio" class="logo">Mi<span>Marca.</span></a>
+
+      <div class="enlaces">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="contenedor hero-contenido">
+        <div>
+          <span class="etiqueta">¡Bienvenido a nuestra marca!</span>
+
+          <h1>Ideas que se convierten en <span>experiencias.</span></h1>
+
+          <p>
+            Descubre una marca creada para sorprenderte.
+            Conoce nuestros productos, explora nuestras novedades
+            y encuentra algo especial para ti.
+          </p>
+
+          <a href="#productos" class="boton">Descubrir más →</a>
+        </div>
+
+        <div class="ilustracion">
+          <div class="ilustracion-interior">
+            <div class="emoji">✨ 🎨</div>
+            <h2>¡Algo increíble!</h2>
+            <p>Creatividad, calidad y mucha personalidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="productos">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <span class="etiqueta">Lo que tenemos para ti</span>
+          <h2>Descubre nuestros productos</h2>
+          <p>
+            Explora nuestras principales categorías y encuentra
+            la opción perfecta para ti.
+          </p>
+        </div>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <div class="icono">🌟</div>
+            <h3>Nuestros favoritos</h3>
+            <p>
+              Conoce los productos que destacan por su estilo,
+              calidad y personalidad.
+            </p>
+            <a href="#contacto">Más información →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🎁</div>
+            <h3>Novedades</h3>
+            <p>
+              Descubre nuevas propuestas pensadas para sorprender
+              y ofrecerte algo diferente.
+            </p>
+            <a href="#contacto">Conocer más →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">💜</div>
+            <h3>Experiencias únicas</h3>
+            <p>
+              Encuentra opciones que conectan con tus gustos,
+              necesidades y estilo.
+            </p>
+            <a href="#contacto">Contáctanos →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion sobre" id="nosotros">
+      <div class="contenedor sobre-contenido">
+        <div class="sobre-grafico">💡</div>
+
+        <div>
+          <span class="etiqueta">Conócenos</span>
+          <h2>Una marca con personalidad propia</h2>
+          <p>
+            Creemos que cada detalle cuenta. Por eso buscamos
+            ofrecer productos con identidad, una presentación
+            atractiva y una experiencia cercana para nuestros clientes.
+          </p>
+          <p>
+            Nuestra meta es seguir creciendo, innovando y creando
+            conexiones con las personas que nos eligen.
+          </p>
+          <a href="#contacto" class="boton">Hablemos →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="contacto">
+      <div class="contenedor">
+        <div class="contacto">
+          <h2>¿Quieres saber más?</h2>
+          <p>
+            Escríbenos para conocer nuestros productos,
+            resolver tus dudas o solicitar información.
+          </p>
+
+          <!-- Reemplaza el enlace por tu WhatsApp o red social -->
+          <a
+            class="boton"
+            href="mailto:contacto@ejemplo.com?subject=Información%20sobre%20la%20marca"
+          >
+            Contáctanos →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      © 2026 Mi Marca. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
