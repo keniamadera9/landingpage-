@@ -1,21 +1,27 @@
 
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mi Marca | Creatividad que inspira</title>
-  <meta name="description" content="Descubre nuestra marca, nuestros productos y todo lo que tenemos para ti.">
+  <title>WONIFY | Dulces momentos hechos en casa</title>
+  <meta name="description" content="En WONIFY encontrarás donas, galletas, postres caseros, cafés y jugos naturales preparados con mucho amor.">
+
+  <meta name="theme-color" content="#fff8f1">
 
   <style>
     :root {
-      --principal: #7C3AED;
-      --secundario: #FF6B6B;
-      --acento: #FFD166;
-      --fondo: #FFF9F2;
-      --texto: #29233A;
-      --blanco: #FFFFFF;
+      --rosa: #ff7096;
+      --rosa-claro: #ffe0e9;
+      --fucsia: #ed4d82;
+      --morado: #8054d9;
+      --crema: #fff8f1;
+      --chocolate: #442c35;
+      --marron: #80616a;
+      --amarillo: #ffd36e;
+      --blanco: #ffffff;
     }
 
     * {
@@ -26,18 +32,23 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      line-height: 1.6;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background: var(--crema);
+      color: var(--chocolate);
+      line-height: 1.7;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .contenedor {
@@ -46,303 +57,480 @@
     }
 
     header {
-      background: var(--blanco);
+      background: rgba(255, 255, 255, 0.96);
       position: sticky;
       top: 0;
-      z-index: 10;
-      box-shadow: 0 3px 18px #29233A10;
+      z-index: 20;
+      box-shadow: 0 3px 20px rgba(68, 44, 53, 0.07);
     }
 
     nav {
       min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .logo {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--principal);
+      font-size: 2rem;
+      font-weight: 1000;
+      letter-spacing: -1.5px;
+      color: var(--fucsia);
+      line-height: 1.2;
     }
 
     .logo span {
-      color: var(--secundario);
+      color: var(--morado);
     }
 
-    .enlaces {
+    .menu {
       display: flex;
-      gap: 22px;
+      gap: 24px;
+      align-items: center;
       flex-wrap: wrap;
-      font-weight: 700;
-      font-size: .95rem;
+      font-size: 0.95rem;
+      font-weight: bold;
     }
 
-    .enlaces a:hover {
-      color: var(--secundario);
+    .menu a {
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: var(--fucsia);
     }
 
     .boton {
-      display: inline-block;
-      background: var(--principal);
-      color: white;
-      padding: 13px 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--fucsia);
+      color: var(--blanco);
+      padding: 13px 24px;
       border-radius: 30px;
       font-weight: bold;
-      transition: transform .2s, background .2s;
+      border: 2px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .boton:hover {
-      background: #5B21B6;
       transform: translateY(-3px);
+      box-shadow: 0 9px 22px rgba(237, 77, 130, 0.23);
+    }
+
+    .boton-secundario {
+      background: var(--blanco);
+      color: var(--fucsia);
+      border-color: #ffd1df;
     }
 
     .hero {
-      padding: 85px 0;
+      padding: 85px 0 90px;
       overflow: hidden;
       background:
-        radial-gradient(circle at 85% 15%, #FFD16680, transparent 25%),
-        radial-gradient(circle at 5% 90%, #FF6B6B30, transparent 25%),
-        var(--fondo);
+        radial-gradient(circle at 90% 15%, #ffe5a8 0, transparent 28%),
+        radial-gradient(circle at 5% 90%, #ffdce6 0, transparent 30%),
+        var(--crema);
     }
 
-    .hero-contenido {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
       align-items: center;
-      gap: 45px;
     }
 
     .etiqueta {
       display: inline-block;
-      background: #EDE4FF;
-      color: var(--principal);
       padding: 7px 15px;
       border-radius: 30px;
-      font-size: .85rem;
+      background: var(--rosa-claro);
+      color: #b92e60;
+      font-size: 0.87rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      font-size: clamp(2.8rem, 6vw, 5rem);
       line-height: 1.08;
       letter-spacing: -2px;
       margin-bottom: 22px;
     }
 
     h1 span {
-      color: var(--principal);
+      color: var(--fucsia);
     }
 
-    .hero p {
-      max-width: 530px;
+    .hero-texto {
+      max-width: 540px;
+      color: var(--marron);
       font-size: 1.08rem;
-      color: #655D70;
       margin-bottom: 28px;
     }
 
-    .ilustracion {
-      min-height: 360px;
-      border-radius: 48% 52% 40% 60%;
-      background: linear-gradient(140deg, #FFD166, #FF9D76, #FF6B6B);
+    .botones {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      min-height: 390px;
+      display: grid;
+      place-items: center;
       position: relative;
-      transform: rotate(3deg);
     }
 
-    .ilustracion-interior {
+    .mancha {
+      width: min(100%, 440px);
+      aspect-ratio: 1 / 0.88;
+      background: linear-gradient(140deg, #ffd36e, #ff9eae, #ff7096);
+      border-radius: 48% 52% 39% 61% / 47% 42% 58% 53%;
+      display: grid;
+      place-items: center;
+      transform: rotate(-4deg);
+    }
+
+    .tarjeta-hero {
       width: 78%;
-      min-height: 260px;
-      background: #FFFFFFD9;
-      border-radius: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 32px 20px;
       text-align: center;
-      padding: 25px;
-      transform: rotate(-3deg);
-      box-shadow: 0 20px 50px #29233A18;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 30px;
+      transform: rotate(4deg);
+      box-shadow: 0 20px 50px rgba(68, 44, 53, 0.12);
     }
 
-    .emoji {
-      font-size: 6rem;
-      line-height: 1.3;
+    .donas-grandes {
+      font-size: clamp(4rem, 9vw, 6.5rem);
+      line-height: 1.4;
     }
 
-    .ilustracion-interior h2 {
-      color: var(--principal);
+    .tarjeta-hero h2 {
+      color: var(--fucsia);
       font-size: 1.8rem;
     }
 
+    .tarjeta-hero p {
+      color: var(--marron);
+    }
+
+    .decoracion {
+      position: absolute;
+      font-size: 2.3rem;
+    }
+
+    .decoracion.uno {
+      top: 7%;
+      left: 5%;
+    }
+
+    .decoracion.dos {
+      right: 2%;
+      bottom: 8%;
+    }
+
     .seccion {
-      padding: 75px 0;
+      padding: 80px 0;
     }
 
-    .titulo-seccion {
+    .encabezado {
+      max-width: 670px;
+      margin: 0 auto 42px;
       text-align: center;
-      max-width: 650px;
-      margin: 0 auto 40px;
     }
 
-    .titulo-seccion h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 12px;
+    .encabezado h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
     }
 
-    .titulo-seccion p {
-      color: #71697B;
+    .encabezado p {
+      color: var(--marron);
     }
 
-    .tarjetas {
+    .productos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .tarjeta {
-      background: white;
-      padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px #29233A0B;
-      border: 1px solid #F0E9F7;
-      transition: transform .25s;
+    .producto {
+      background: var(--blanco);
+      border: 1px solid #f7e5e8;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(68, 44, 53, 0.045);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .tarjeta:hover {
+    .producto:hover {
       transform: translateY(-7px);
+      box-shadow: 0 16px 35px rgba(68, 44, 53, 0.09);
     }
 
-    .icono {
-      width: 65px;
-      height: 65px;
+    .producto-imagen {
+      min-height: 190px;
       display: grid;
       place-items: center;
-      font-size: 2rem;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      background: #EDE4FF;
+      font-size: 5.2rem;
     }
 
-    .tarjeta:nth-child(2) .icono {
-      background: #FFE5E1;
+    .fondo-rosa {
+      background: #ffe1e9;
     }
 
-    .tarjeta:nth-child(3) .icono {
-      background: #FFF0C9;
+    .fondo-amarillo {
+      background: #fff0c5;
     }
 
-    .tarjeta h3 {
+    .fondo-morado {
+      background: #eee3ff;
+    }
+
+    .fondo-verde {
+      background: #e0f3df;
+    }
+
+    .fondo-durazno {
+      background: #ffe6d6;
+    }
+
+    .fondo-azul {
+      background: #dff2ff;
+    }
+
+    .producto-contenido {
+      padding: 23px;
+    }
+
+    .producto h3 {
       font-size: 1.3rem;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .tarjeta p {
-      color: #71697B;
-      margin-bottom: 18px;
+    .producto p {
+      font-size: 0.96rem;
+      color: var(--marron);
+      margin-bottom: 17px;
     }
 
-    .tarjeta a {
-      color: var(--principal);
+    .producto-link {
+      color: var(--fucsia);
       font-weight: bold;
     }
 
-    .sobre {
-      background: #EEE7FF;
+    .hecho-casa {
+      background: #fff0f4;
     }
 
-    .sobre-contenido {
+    .hecho-grid {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 45px;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
       align-items: center;
     }
 
-    .sobre-grafico {
-      min-height: 260px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #7C3AED, #B69AFF);
-      color: white;
+    .hecho-visual {
+      min-height: 340px;
+      border-radius: 35px;
+      background: linear-gradient(145deg, #ffd36e, #ff9caf);
       display: grid;
       place-items: center;
-      font-size: 7rem;
+      font-size: 8rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .sobre h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+    .hecho-visual::after {
+      content: "Hecho con amor";
+      position: absolute;
+      bottom: 22px;
+      right: 20px;
+      background: white;
+      color: var(--fucsia);
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      box-shadow: 0 4px 15px #442c3510;
+    }
+
+    .hecho-texto h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
       margin-bottom: 18px;
     }
 
-    .sobre p {
-      color: #514568;
-      margin-bottom: 20px;
+    .hecho-texto p {
+      color: var(--marron);
+      margin-bottom: 16px;
+    }
+
+    .lista {
+      list-style: none;
+      margin: 22px 0 27px;
+    }
+
+    .lista li {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .lista li span {
+      margin-right: 8px;
     }
 
     .contacto {
+      padding: 65px 25px;
       text-align: center;
-      background: var(--texto);
+      background: linear-gradient(135deg, #8054d9, #a778ee);
       color: white;
       border-radius: 35px;
-      padding: 55px 25px;
+      position: relative;
+      overflow: hidden;
     }
 
     .contacto h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
       margin-bottom: 15px;
     }
 
     .contacto p {
-      color: #E0D9EA;
-      margin-bottom: 25px;
+      max-width: 580px;
+      margin: 0 auto 28px;
+      color: #f5edff;
+    }
+
+    .contacto-botones {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
     }
 
     .contacto .boton {
-      background: var(--acento);
-      color: var(--texto);
+      background: var(--amarillo, #ffd36e);
+      color: var(--chocolate);
+    }
+
+    .contacto .boton-secundario {
+      background: white;
+      color: var(--morado);
+      border-color: white;
     }
 
     footer {
-      padding: 28px 0;
+      padding: 30px 0;
       text-align: center;
-      color: #71697B;
-      font-size: .9rem;
+      color: var(--marron);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 760px) {
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 1000;
+      color: var(--fucsia);
+      margin-bottom: 5px;
+    }
+
+    .footer-redes {
+      margin-top: 10px;
+    }
+
+    .footer-redes a {
+      color: var(--morado);
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .hecho-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 0 65px;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+
+      .mancha {
+        width: min(100%, 400px);
+      }
+
+      .productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hecho-visual {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 540px) {
       nav {
         justify-content: center;
       }
 
-      .enlaces {
+      .menu {
         justify-content: center;
-        gap: 14px;
+        gap: 12px 18px;
+        font-size: 0.9rem;
+      }
+
+      .logo {
+        font-size: 1.9rem;
       }
 
       .hero {
-        padding: 55px 0;
-      }
-
-      .hero-contenido,
-      .sobre-contenido {
-        grid-template-columns: 1fr;
-      }
-
-      .ilustracion {
-        min-height: 290px;
-      }
-
-      .tarjetas {
-        grid-template-columns: 1fr;
+        padding-top: 45px;
       }
 
       h1 {
-        letter-spacing: -1px;
+        font-size: clamp(2.6rem, 12vw, 3.8rem);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-visual {
+        min-height: 280px;
+      }
+
+      .tarjeta-hero {
+        padding: 22px 12px;
+      }
+
+      .seccion {
+        padding: 60px 0;
+      }
+
+      .productos {
+        grid-template-columns: 1fr;
+      }
+
+      .producto-imagen {
+        min-height: 170px;
+      }
+
+      .botones .boton {
+        width: 100%;
+      }
+
+      .contacto-botones {
+        flex-direction: column;
+      }
+
+      .contacto-botones .boton {
+        width: 100%;
       }
     }
   </style>
@@ -352,135 +540,279 @@
 
   <header>
     <nav class="contenedor">
-      <!-- Cambia "Mi Marca" por el nombre de tu negocio -->
-      <a href="#inicio" class="logo">Mi<span>Marca.</span></a>
+      <a class="logo" href="#inicio" aria-label="WONIFY, inicio">
+        <span>WO</span>NIFY<span>.</span>
+      </a>
 
-      <div class="enlaces">
+      <div class="menu">
         <a href="#inicio">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Delicias</a>
+        <a href="#nosotros">Nuestra esencia</a>
         <a href="#contacto">Contacto</a>
       </div>
     </nav>
   </header>
 
   <main>
+
     <section class="hero" id="inicio">
-      <div class="contenedor hero-contenido">
+      <div class="contenedor hero-grid">
+
         <div>
-          <span class="etiqueta">¡Bienvenido a nuestra marca!</span>
+          <span class="etiqueta">🍓 Dulzura hecha en casa</span>
 
-          <h1>Ideas que se convierten en <span>experiencias.</span></h1>
+          <h1>
+            Pequeños antojos,<br>
+            grandes <span>sonrisas.</span>
+          </h1>
 
-          <p>
-            Descubre una marca creada para sorprenderte.
-            Conoce nuestros productos, explora nuestras novedades
-            y encuentra algo especial para ti.
+          <p class="hero-texto">
+            ¡Bienvenido a WONIFY! 💗 Preparamos donas, galletas,
+            postres, cafés y jugos naturales para acompañar tus
+            momentos favoritos. Todo casero, fresco y hecho con amor.
           </p>
 
-          <a href="#productos" class="boton">Descubrir más →</a>
-        </div>
-
-        <div class="ilustracion">
-          <div class="ilustracion-interior">
-            <div class="emoji">✨ 🎨</div>
-            <h2>¡Algo increíble!</h2>
-            <p>Creatividad, calidad y mucha personalidad.</p>
+          <div class="botones">
+            <a class="boton" href="#productos">Descubre nuestras delicias ↓</a>
+            <a class="boton boton-secundario"
+               href="https://www.instagram.com/wonifyyy/"
+               target="_blank"
+               rel="noopener noreferrer">
+              📸 Síguenos
+            </a>
           </div>
         </div>
+
+        <div class="hero-visual" aria-label="Dulces y bebidas de WONIFY">
+          <span class="decoracion uno">✨</span>
+          <span class="decoracion dos">💗</span>
+
+          <div class="mancha">
+            <div class="tarjeta-hero">
+              <div class="donas-grandes" aria-hidden="true">🍩 ☕</div>
+              <h2>Hola, somos WONIFY</h2>
+              <p>Un poquito de dulzura para alegrarte el día.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <section class="seccion" id="productos">
       <div class="contenedor">
-        <div class="titulo-seccion">
-          <span class="etiqueta">Lo que tenemos para ti</span>
-          <h2>Descubre nuestros productos</h2>
+
+        <div class="encabezado">
+          <span class="etiqueta">Preparado con cariño 💕</span>
+          <h2>¿Qué se te antoja hoy?</h2>
           <p>
-            Explora nuestras principales categorías y encuentra
-            la opción perfecta para ti.
+            Hay un sabor especial para cada momento.
+            Descubre nuestras delicias caseras.
           </p>
         </div>
 
-        <div class="tarjetas">
-          <article class="tarjeta">
-            <div class="icono">🌟</div>
-            <h3>Nuestros favoritos</h3>
-            <p>
-              Conoce los productos que destacan por su estilo,
-              calidad y personalidad.
-            </p>
-            <a href="#contacto">Más información →</a>
+        <div class="productos">
+
+          <article class="producto">
+            <div class="producto-imagen fondo-rosa" aria-hidden="true">
+              🍩
+            </div>
+            <div class="producto-contenido">
+              <h3>Donas</h3>
+              <p>
+                Suaves, deliciosas y llenas de dulzura.
+                El antojo perfecto para alegrar tu día.
+              </p>
+              <a class="producto-link"
+                 href="https://www.instagram.com/wonifyyy/"
+                 target="_blank" rel="noopener noreferrer">
+                Pregunta por nuestras donas →
+              </a>
+            </div>
           </article>
 
-          <article class="tarjeta">
-            <div class="icono">🎁</div>
-            <h3>Novedades</h3>
-            <p>
-              Descubre nuevas propuestas pensadas para sorprender
-              y ofrecerte algo diferente.
-            </p>
-            <a href="#contacto">Conocer más →</a>
+          <article class="producto">
+            <div class="producto-imagen fondo-amarillo" aria-hidden="true">
+              ☕
+            </div>
+            <div class="producto-contenido">
+              <h3>Cafés</h3>
+              <p>
+                Una pausa deliciosa para disfrutar,
+                relajarte y acompañar tus momentos.
+              </p>
+              <a class="producto-link"
+                 href="https://www.instagram.com/wonifyyy/"
+                 target="_blank" rel="noopener noreferrer">
+                Descubre nuestros cafés →
+              </a>
+            </div>
           </article>
 
-          <article class="tarjeta">
-            <div class="icono">💜</div>
-            <h3>Experiencias únicas</h3>
-            <p>
-              Encuentra opciones que conectan con tus gustos,
-              necesidades y estilo.
-            </p>
-            <a href="#contacto">Contáctanos →</a>
+          <article class="producto">
+            <div class="producto-imagen fondo-morado" aria-hidden="true">
+              🍪
+            </div>
+            <div class="producto-contenido">
+              <h3>Galletas</h3>
+              <p>
+                Pequeños bocados para compartir,
+                regalar o disfrutar cuando quieras.
+              </p>
+              <a class="producto-link"
+                 href="https://www.instagram.com/wonifyyy/"
+                 target="_blank" rel="noopener noreferrer">
+                Pregunta por las galletas →
+              </a>
+            </div>
           </article>
+
+          <article class="producto">
+            <div class="producto-imagen fondo-durazno" aria-hidden="true">
+              🧁
+            </div>
+            <div class="producto-contenido">
+              <h3>Postres</h3>
+              <p>
+                Dulces tentaciones preparadas en casa
+                para convertir cualquier día en algo especial.
+              </p>
+              <a class="producto-link"
+                 href="https://www.instagram.com/wonifyyy/"
+                 target="_blank" rel="noopener noreferrer">
+                Conoce nuestros postres →
+              </a>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-imagen fondo-verde" aria-hidden="true">
+              🍓
+            </div>
+            <div class="producto-contenido">
+              <h3>Jugos naturales</h3>
+              <p>
+                Una opción fresca y frutal para
+                acompañar tus comidas y antojos.
+              </p>
+              <a class="producto-link"
+                 href="https://www.instagram.com/wonifyyy/"
+                 target="_blank" rel="noopener noreferrer">
+                Pregunta por los jugos →
+              </a>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-imagen fondo-azul" aria-hidden="true">
+              💝
+            </div>
+            <div class="producto-contenido">
+              <h3>Un antojo especial</h3>
+              <p>
+                ¿Tienes algo en mente? Escríbenos y
+                pregunta por las opciones disponibles.
+              </p>
+              <a class="producto-link"
+                 href="mailto:wonifyyy@gmail.com?subject=Hola%20WONIFY">
+                Cuéntanos tu idea →
+              </a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <section class="seccion sobre" id="nosotros">
-      <div class="contenedor sobre-contenido">
-        <div class="sobre-grafico">💡</div>
+    <section class="seccion hecho-casa" id="nosotros">
+      <div class="contenedor hecho-grid">
 
-        <div>
-          <span class="etiqueta">Conócenos</span>
-          <h2>Una marca con personalidad propia</h2>
-          <p>
-            Creemos que cada detalle cuenta. Por eso buscamos
-            ofrecer productos con identidad, una presentación
-            atractiva y una experiencia cercana para nuestros clientes.
-          </p>
-          <p>
-            Nuestra meta es seguir creciendo, innovando y creando
-            conexiones con las personas que nos eligen.
-          </p>
-          <a href="#contacto" class="boton">Hablemos →</a>
+        <div class="hecho-visual" aria-hidden="true">
+          🧁 🍓
         </div>
+
+        <div class="hecho-texto">
+          <span class="etiqueta">Nuestra esencia 💗</span>
+
+          <h2>Hecho en casa, hecho con amor.</h2>
+
+          <p>
+            En WONIFY creemos que los pequeños detalles hacen
+            grandes momentos. Por eso, nuestras delicias caseras
+            están pensadas para endulzar tus días y compartir
+            felicidad en cada bocado.
+          </p>
+
+          <ul class="lista">
+            <li><span>🍩</span> Dulces antojos para disfrutar.</li>
+            <li><span>☕</span> Bebidas para acompañar tus momentos.</li>
+            <li><span>🍓</span> Sabores que alegran el día.</li>
+            <li><span>💗</span> Una marca creada con mucho cariño.</li>
+          </ul>
+
+          <a class="boton"
+             href="https://www.instagram.com/wonifyyy/"
+             target="_blank" rel="noopener noreferrer">
+            Conoce WONIFY en Instagram →
+          </a>
+        </div>
+
       </div>
     </section>
 
     <section class="seccion" id="contacto">
       <div class="contenedor">
+
         <div class="contacto">
-          <h2>¿Quieres saber más?</h2>
+          <span class="etiqueta">¡Nos encantará saber de ti! 💌</span>
+
+          <h2>¿Se te antojó algo?</h2>
+
           <p>
-            Escríbenos para conocer nuestros productos,
-            resolver tus dudas o solicitar información.
+            Escríbenos para consultar nuestros productos,
+            conocer las opciones disponibles o hacer tus consultas.
+            ¡Estamos felices de atenderte!
           </p>
 
-          <!-- Reemplaza el enlace por tu WhatsApp o red social -->
-          <a
-            class="boton"
-            href="mailto:contacto@ejemplo.com?subject=Información%20sobre%20la%20marca"
-          >
-            Contáctanos →
-          </a>
+          <div class="contacto-botones">
+            <a class="boton"
+               href="https://www.instagram.com/wonifyyy/"
+               target="_blank"
+               rel="noopener noreferrer">
+              📸 Visítanos en Instagram
+            </a>
+
+            <a class="boton boton-secundario"
+               href="mailto:wonifyyy@gmail.com?subject=Consulta%20sobre%20productos%20WONIFY&body=Hola%20WONIFY%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20sus%20productos.">
+              💌 Escríbenos por correo
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="contenedor">
-      © 2026 Mi Marca. Todos los derechos reservados.
+      <div class="footer-logo">WONIFY.</div>
+      <p>Pequeños antojos, grandes sonrisas. 💗</p>
+
+      <div class="footer-redes">
+        <a href="https://www.instagram.com/wonifyyy/"
+           target="_blank" rel="noopener noreferrer">
+          Instagram @wonifyyy
+        </a>
+        &nbsp;·&nbsp;
+        <a href="mailto:wonifyyy@gmail.com">
+          wonifyyy@gmail.com
+        </a>
+      </div>
+
+      <p style="margin-top: 15px;">
+        © 2026 WONIFY. Hecho con amor.
+      </p>
     </div>
   </footer>
 
